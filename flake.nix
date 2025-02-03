@@ -13,6 +13,7 @@
     remarkable-connection-utility.url = "github:/404wolf/remarkable-connection-utility";
     remarkable-obsidian.url = "github:404Wolf/remarkable-obsidian";
     cartographcf.url = "github:404Wolf/CartographCF";
+    dashToDock.url = "github:404wolf/HyprDash";
   };
 
   outputs = {
@@ -22,9 +23,7 @@
     ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {inherit system;};
-      in {
+      system: {
         overlays.default = final: prev: {
           hyprpaper = inputs.hyprpaper.packages.${system}.default;
           hyprland-workspace2d = inputs.hyprland-workspace2d.packages.${system}.workspace2d;
@@ -35,21 +34,7 @@
           rcu = inputs.remarkable-connection-utility.packages.${system}.default;
           obsidian = inputs.remarkable-obsidian.packages.${system}.obsidian;
           cartographcf = inputs.cartographcf.packages.${system}.default;
-        };
-
-        packages = {
-          inherit
-            (pkgs)
-            hyprpaper
-            hyprland-workspace2d
-            wrappedNvim
-            capture-utils
-            dalleCLI
-            nixGpt
-            rcu
-            obsidian
-            cartographcf
-            ;
+          dashToDock = inputs.dashToDock.packages.${system}.default;
         };
       }
     );
