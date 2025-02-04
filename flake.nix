@@ -14,6 +14,7 @@
     remarkable-obsidian.url = "github:404Wolf/remarkable-obsidian";
     cartographcf.url = "github:404Wolf/CartographCF";
     dashToDock.url = "github:404wolf/HyprDash";
+    valfs.url = "github:404wolf/valfs";
   };
 
   outputs = {
@@ -35,6 +36,7 @@
           obsidian = inputs.remarkable-obsidian.packages.${system}.obsidian;
           cartographcf = inputs.cartographcf.packages.${system}.default;
           dashToDock = inputs.dashToDock.packages.${system}.default;
+          valfs = inputs.valfs.packages.${system}.default;
         };
       }
     );
