@@ -20,6 +20,10 @@
     cartographcf.url = "github:404Wolf/CartographCF";
     dashToDock.url = "github:404wolf/HyprDash";
     valfs.url = "github:404wolf/valfs";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -47,6 +51,7 @@
           cartographcf = inputs.cartographcf.packages.${system}.default;
           dashToDock = inputs.dashToDock.packages.${system}.default;
           valfs = inputs.valfs.packages.${system}.default;
+          firefox-addons = inputs.firefox-addons.packages.${system};
         };
       }
     );
